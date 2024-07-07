@@ -11,7 +11,7 @@ app.use(cookieParser());
 
 
 app.get("/",(req,res)=>{
-    res.status(200).json({"Status":"Connected"});
+    res.status(200).json({"Server Status":"Connected"});
 })
 
 export {app}
