@@ -1,3 +1,3 @@
-const DB_NAME = "eyeCare";
+const DB_NAME = "enetracare";
 
 export {DB_NAME};
