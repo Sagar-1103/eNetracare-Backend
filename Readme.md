@@ -1,6 +1,7 @@
-# Project Title
 
-  eNetraCare Backend
+# Project Title
+  eNetraCare Backend 
+
 
 ## Run Locally
 
@@ -28,40 +29,36 @@ Start the server
   npm run dev
 ```
 
+
 ## API Reference
 
 ### Authentication
-
-#### Register User
-
+####  Register User
 ```http
   POST /api/v1/users/register
 ```
 
-| Parameter    | Type       | Description        |
-| :----------- | :--------- | :----------------- |
-| `email`    | `string` | **Required** |
-| `password` | `string` | **Required** |
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `email` | `string` | **Required**|
+| `password` | `string` | **Required**|
 
-#### Login User
-
+####  Login User
 ```http
   POST /api/v1/users/login
 ```
 
-| Parameter    | Type       | Description        |
-| :----------- | :--------- | :----------------- |
-| `email`    | `string` | **Required** |
-| `password` | `string` | **Required** |
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `email` | `string` | **Required**|
+| `password` | `string` | **Required**|
 
-#### Logout User
-
+####  Logout User
 ```http
   POST /api/v1/users/logout
 ```
 
-#### Refresh Token
-
+####  Refresh Token
 ```http
   POST /api/v1/users/refresh-token
 ```
@@ -72,63 +69,59 @@ Start the server
   GET /api/v1/users/current-user
 ```
 
-#### Change Password
-
+####  Change Password
 ```http
   POST /api/v1/users/change-password
 ```
 
-| Parameter       | Type       | Description        |
-| :-------------- | :--------- | :----------------- |
-| `oldPassword` | `string` | **Required** |
-| `newPassword` | `string` | **Required** |
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `oldPassword` | `string` | **Required**|
+| `newPassword` | `string` | **Required**|
 
 ### News
 
-#### Get All News
-
+####  Get All News
 ```http
   GET /api/v1/news
 ```
 
-#### Post News
-
+####  Post News
 ```http
   POST /api/v1/news/post
 ```
 
-| Parameter       | Type       | Description        |
-| :-------------- | :--------- | :----------------- |
-| `title`       | `string` | **Required** |
-| `description` | `string` | **Required** |
-| `image`       | `file`   | **Required** |
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `title` | `string` | **Required**|
+| `description` | `string` | **Required**|
+| `image` | `file` | **Required**|
 
-#### Update News Cover Image
 
+####  Update News Cover Image
 ```http
   PATCH /api/v1/news/update-image/${id}
 ```
 
-| Parameter | Type     | Description        |
-| :-------- | :------- | :----------------- |
-| `image` | `file` | **Required** |
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `image` | `file` | **Required**|
 
-#### Update News Content
-
+####  Update News Content
 ```http
   PATCH /api/v1/news/update-content/${id}
 ```
 
-| Parameter          | Type       | Description        |
-| :----------------- | :--------- | :----------------- |
-| `newTitle`       | `string` | **Required** |
-| `newDescription` | `string` | **Required** |
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `newTitle` | `string` | **Required**|
+| `newDescription` | `string` | **Required**|
 
-#### Delete News
-
+####  Delete News
 ```http
   DELETE /api/v1/news/delete/${id}
 ```
+
 
 ## Tech Stack
 
