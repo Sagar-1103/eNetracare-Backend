@@ -1,5 +1,6 @@
 import { v2 as cloudinary } from "cloudinary";
 import fs from "fs";
+import { ApiError } from "./ApiError.js";
 
 const uploadOnCloudinary = async (localFilePath) => {
   try {
@@ -19,4 +20,14 @@ const uploadOnCloudinary = async (localFilePath) => {
   }
 };
 
-export {uploadOnCloudinary}
+const deleteFromCloudinary = async (publicId) => {
+  try {
+    const result = await cloudinary.uploader.destroy(publicId);
+    console.log("Image deleted successfully:", result);
+    return result;
+  } catch (error) {
+    throw new ApiError(500,"Error occured while deleting old news image from server.")
+  }
+};
+
+export {uploadOnCloudinary,deleteFromCloudinary}

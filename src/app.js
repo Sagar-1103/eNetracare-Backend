@@ -15,5 +15,7 @@ app.get("/",(req,res)=>{
 })
 
 import userRouter from "./routes/user.routes.js";
+import newsRouter from "./routes/news.routes.js"
 app.use("/api/v1/users",userRouter);
+app.use("/api/v1/news",newsRouter);
 export {app}
