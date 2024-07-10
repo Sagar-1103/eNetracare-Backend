@@ -1,18 +1,10 @@
-// const asyncHandler = (requestHandler) => {
-//   return (req, res, next) => {
-//     Promise.resolve(requestHandler(req, res, next)).catch((err) => next(err));
-//   };
-// };
-
+import { ApiResponse } from "./ApiResponse.js";
 
 const asyncHandler = (fn)=>async(req,res,next)=>{
   try {
     await fn(req,res,next)
   } catch (error) {
-    res.status(error.statusCode||500).json({
-      success:false,
-      message:error.message
-    })
+    res.status(error.statusCode||500).json(new ApiResponse(error.statusCode||500,undefined,error.message))
     }
   }
   

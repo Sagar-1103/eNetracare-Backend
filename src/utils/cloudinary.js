@@ -4,11 +4,6 @@ import { ApiError } from "./ApiError.js";
 
 const uploadOnCloudinary = async (localFilePath) => {
   try {
-    cloudinary.config({
-      cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
-      api_key: process.env.CLOUDINARY_API_KEY,
-      api_secret: process.env.CLOUDINARY_API_SECRET,
-    });
     if (!localFilePath) return null;
 
     const response = await cloudinary.uploader.upload(localFilePath,
@@ -21,22 +16,17 @@ const uploadOnCloudinary = async (localFilePath) => {
     return response;
   } catch (error) {
     fs.unlinkSync(localFilePath) 
-    throw new ApiError(509,"Error occured while uploading image from server.")
+    return null
   }
 };
 
 const deleteFromCloudinary = async (publicId) => {
   try {
-    cloudinary.config({
-      cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
-      api_key: process.env.CLOUDINARY_API_KEY,
-      api_secret: process.env.CLOUDINARY_API_SECRET,
-    });
     const result = await cloudinary.uploader.destroy(publicId);
     console.log("Image deleted successfully:", result);
     return result;
   } catch (error) {
-    throw new ApiError(508,"Error occured while deleting old image from server.")
+    return null
   }
 };
 

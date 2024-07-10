@@ -5,11 +5,6 @@ import { connectCloudinary } from "./src/config/cloudinaryConfig.js";
 import os from 'os';
 import fs from 'fs';
 import path from 'path';
-import { fileURLToPath } from 'url';
-
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
 
 const uploadsDir = path.join(os.tmpdir(), 'uploads');
 if (!fs.existsSync(uploadsDir)) {
@@ -19,7 +14,6 @@ if (!fs.existsSync(uploadsDir)) {
 dotenv.config()
 
 connectCloudinary();
-
 
 connectDB()
 .then(()=>{

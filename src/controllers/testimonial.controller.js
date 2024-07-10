@@ -16,7 +16,7 @@ const postTestimonial = asyncHandler(async(req,res)=>{
 
     const testimonialPatientImage = await uploadOnCloudinary(imageLocalPath);
     if(!testimonialPatientImage){
-        throw new ApiError(501,"Some error occured while uploading image to server");
+        throw new ApiError(500,"Some error occured while uploading image to server");
     }
     const createdTestimonial = await Testimonial.create({
         content,
@@ -26,7 +26,7 @@ const postTestimonial = asyncHandler(async(req,res)=>{
         author:req.user?.email,
     })
     if (!createdTestimonial) {
-        throw new ApiError(502, "Something went wrong while posting the Testimonial");
+        throw new ApiError(500, "Something went wrong while posting the Testimonial");
       }
     
       return res

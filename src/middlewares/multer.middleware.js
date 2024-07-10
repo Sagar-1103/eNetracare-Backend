@@ -1,9 +1,6 @@
 import multer from "multer";
 import os from 'os';
-import fs from 'fs';
 import path from 'path';
-import { fileURLToPath } from 'url';
-
 
 const uploadsDir = path.join(os.tmpdir(), 'uploads');
 
