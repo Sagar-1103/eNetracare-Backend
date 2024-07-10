@@ -1,5 +1,11 @@
 import multer from "multer";
-import {uploadsDir} from "../../index.js"
+import os from 'os';
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+
+const uploadsDir = path.join(os.tmpdir(), 'uploads');
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {

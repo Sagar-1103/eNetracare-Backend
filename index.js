@@ -34,5 +34,3 @@ connectDB()
 .catch((err)=>{
     console.log("MongoDB connection error !!! ",err);
 })
-
-export {uploadsDir}
