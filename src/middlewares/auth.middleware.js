@@ -2,8 +2,12 @@ import jwt from "jsonwebtoken";
 import { ApiError } from "../utils/ApiError.js";
 import { asyncHandler } from "../utils/asyncHandler.js";
 import { User } from "../models/user.model.js";
+import dotenv from "dotenv";
+dotenv.config()
 
-export const verifyJWT = asyncHandler(async(req,_,next)=>{
+const adminEmails = [process.env.ADMIN_1];
+
+const verifyJWT = asyncHandler(async(req,_,next)=>{
 
     try {
         const token = req.cookies?.accessToken || req.header("Authorization")?.replace("Bearer ","");
@@ -22,3 +26,17 @@ export const verifyJWT = asyncHandler(async(req,_,next)=>{
         throw new ApiError(401,error?.message || "Invalid Access Token")
     }
 })
+
+const verifyAdmin = asyncHandler(async(req,_,next)=>{
+    try {
+        const userEmail = req.user?.email;
+        if (!adminEmails.includes(userEmail)) {
+            throw new ApiError(401,"You are not the admin.");
+        }
+        next();
+    } catch (error) {
+        throw new ApiError(401,error?.message || "Invalid Access Token")
+    }
+})
+
+export {verifyJWT,verifyAdmin}
