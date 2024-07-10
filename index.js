@@ -2,6 +2,7 @@ import dotenv from "dotenv";
 import connectDB from "./src/config/databaseConfig.js";
 import { app } from "./src/app.js";
 import { connectCloudinary } from "./src/config/cloudinaryConfig.js";
+import os from 'os';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -10,9 +11,8 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const uploadsDir = path.join(__dirname, 'uploads');
+const uploadsDir = path.join(os.tmpdir(), 'uploads');
 if (!fs.existsSync(uploadsDir)) {
-    console.log("upload folder created");
   fs.mkdirSync(uploadsDir);
 }
 
@@ -34,3 +34,5 @@ connectDB()
 .catch((err)=>{
     console.log("MongoDB connection error !!! ",err);
 })
+
+export {uploadsDir}
