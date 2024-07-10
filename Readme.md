@@ -34,7 +34,7 @@ Start the server
 
 ### Authentication
 ####  Register User
-```http
+```https
   POST /api/v1/users/register
 ```
 
@@ -44,7 +44,7 @@ Start the server
 | `password` | `string` | **Required**|
 
 ####  Login User
-```http
+```https
   POST /api/v1/users/login
 ```
 
@@ -54,23 +54,23 @@ Start the server
 | `password` | `string` | **Required**|
 
 ####  Logout User
-```http
+```https
   POST /api/v1/users/logout
 ```
 
 ####  Refresh Token
-```http
+```https
   POST /api/v1/users/refresh-token
 ```
 
 #### Current User
 
-```http
+```https
   GET /api/v1/users/current-user
 ```
 
 ####  Change Password
-```http
+```https
   POST /api/v1/users/change-password
 ```
 
@@ -82,12 +82,12 @@ Start the server
 ### News
 
 ####  Get All News
-```http
+```https
   GET /api/v1/news
 ```
 
 ####  Post News
-```http
+```https
   POST /api/v1/news/post
 ```
 
@@ -99,7 +99,7 @@ Start the server
 
 
 ####  Update News Cover Image
-```http
+```https
   PATCH /api/v1/news/update-image/${id}
 ```
 
@@ -108,7 +108,7 @@ Start the server
 | `image` | `file` | **Required**|
 
 ####  Update News Content
-```http
+```https
   PATCH /api/v1/news/update-content/${id}
 ```
 
@@ -118,7 +118,7 @@ Start the server
 | `newDescription` | `string` | **Required**|
 
 ####  Delete News
-```http
+```https
   DELETE /api/v1/news/delete/${id}
 ```
 
