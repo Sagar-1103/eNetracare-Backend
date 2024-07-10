@@ -21,7 +21,7 @@ const uploadOnCloudinary = async (localFilePath) => {
     return response;
   } catch (error) {
     fs.unlinkSync(localFilePath) 
-    throw new ApiError(500,"Error occured while uploading image from server.")
+    throw new ApiError(509,"Error occured while uploading image from server.")
   }
 };
 
@@ -36,7 +36,7 @@ const deleteFromCloudinary = async (publicId) => {
     console.log("Image deleted successfully:", result);
     return result;
   } catch (error) {
-    throw new ApiError(500,"Error occured while deleting old image from server.")
+    throw new ApiError(508,"Error occured while deleting old image from server.")
   }
 };
 
