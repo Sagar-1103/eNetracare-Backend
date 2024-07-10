@@ -1,8 +1,5 @@
-
 # Project Title
   eNetraCare Backend 
-
-
 ## Run Locally
 
 Clone the project
@@ -118,6 +115,50 @@ Start the server
 | `newDescription` | `string` | **Required**|
 
 ####  Delete News
+```https
+  DELETE /api/v1/news/delete/${id}
+```
+
+
+### Testimonials
+
+####  Get All Testimonials
+```https
+  GET /api/v1/testimonials
+```
+
+####  Post Testimonial
+```https
+  POST /api/v1/testimonials/post
+```
+
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `patientName` | `string` | **Required**|
+| `content` | `string` | **Required**|
+| `image` | `file` | **Required**|
+
+
+####  Update Testimonial Patient Image
+```https
+  PATCH /api/v1/testimonials/update-image/${id}
+```
+
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `image` | `file` | **Required**|
+
+####  Update Testimonial Content
+```https
+  PATCH /api/v1/news/update-content/${id}
+```
+
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `newPatientName` | `string` | **Required**|
+| `newContent` | `string` | **Required**|
+
+####  Delete Testimonial
 ```https
   DELETE /api/v1/news/delete/${id}
 ```
