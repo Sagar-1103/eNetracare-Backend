@@ -7,7 +7,10 @@ const testmonialSchema = new Schema(
         required:true,
     },
     patientImage:{
-        type:Object,
+        type:String,
+    },
+    patientImageId:{
+        type:String,
     },
     patientName:{
         type:String,
