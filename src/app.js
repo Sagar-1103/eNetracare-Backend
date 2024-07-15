@@ -4,7 +4,11 @@ import cors from "cors";
 
 const app = express();
 
-app.use(cors());
+const corsOptions = {
+  credentials: true,
+};
+
+app.use(cors(corsOptions));
 app.use(express.urlencoded({extended:true,limit:"16kb"}));
 app.use(express.static("public"));
 app.use(express.static("uploads"));
