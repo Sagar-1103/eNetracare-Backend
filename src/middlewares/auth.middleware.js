@@ -31,6 +31,7 @@ const verifyJWT = asyncHandler(async(req,_,next)=>{
 const verifyAdmin = asyncHandler(async(req,_,next)=>{
     try {
         const userEmail = req.user?.email;
+        console.log(userEmail);
         if (!adminEmails.includes(userEmail)) {
             throw new ApiError(401,"You are not the admin.");
         }
