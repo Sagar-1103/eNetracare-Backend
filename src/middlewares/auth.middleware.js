@@ -5,7 +5,7 @@ import { User } from "../models/user.model.js";
 import dotenv from "dotenv";
 dotenv.config()
 
-const adminEmails = [process.env.ADMIN_1];
+const adminEmails = [process.env.ADMIN_1,process.env.ADMIN_2];
 
 const verifyJWT = asyncHandler(async(req,_,next)=>{
 
