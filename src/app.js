@@ -34,8 +34,10 @@ import userRouter from "./routes/user.routes.js";
 import newsRouter from "./routes/news.routes.js"
 import testimonialRouter from "./routes/testimonial.routes.js"
 import milestoneRouter from "./routes/milestones.routes.js"
+import galleryRouter from "./routes/gallery.routes.js"
 app.use("/api/v1/users",userRouter);
 app.use("/api/v1/news",newsRouter);
 app.use("/api/v1/testimonials",testimonialRouter);
 app.use("/api/v1/milestones",milestoneRouter);
+app.use("/api/v1/gallery",galleryRouter);
 export {app}
