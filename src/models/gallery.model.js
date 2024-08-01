@@ -14,6 +14,10 @@ const gallerySchema = new Schema(
       type: String,
       required: true,
     },
+    imageDate:{
+      type:String,
+      required:true
+  },
   },
   {
     timestamps: true,

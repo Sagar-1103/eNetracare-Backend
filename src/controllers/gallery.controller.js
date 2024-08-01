@@ -5,8 +5,8 @@ import { uploadOnCloudinary,deleteFromCloudinary} from "../utils/cloudinary.js";
 import { Gallery } from "../models/gallery.model.js";
 
 const postGallery = asyncHandler(async(req,res)=>{
-    const {description} = req.body;
-    if(!description){
+    const {description,imageDate} = req.body;
+    if(!description && !imageDate){
         throw new ApiError(400,"Please provide all the details of the Image.");
     }
     const imageLocalPath = await req?.file?.path;
@@ -21,6 +21,7 @@ const postGallery = asyncHandler(async(req,res)=>{
 
     const createdGalleryPost = await Gallery.create({
         description,
+        imageDate,
         image:galleryImage?.url,
         imageId:galleryImage?.public_id,
     })
@@ -61,14 +62,14 @@ const updateGallery = asyncHandler(async(req,res)=>{
 
 const updateGalleryContent = asyncHandler(async(req,res)=>{
     const imageId = req.params?.id;
-    const {newDescription} = req.body;
+    const {newDescription,newImageDate} = req.body;
 
-    if(!newDescription){
-        throw new ApiError(400,"Image Description is required.");
+    if(!newDescription && !newImageDate){
+        throw new ApiError(400,"Image Details is required.");
     }
 
     const updatedGalleryImage = await Gallery.findByIdAndUpdate(imageId,{
-        $set:{description:newDescription}
+        $set:{description:newDescription,imageDate:newImageDate}
     },{
         new:true
     })
