@@ -3,7 +3,7 @@ import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
 import dotenv from "dotenv";
 dotenv.config();
-const adminEmails = [process.env.ADMIN_1,process.env.ADMIN_2];
+const adminEmails = [process.env.ADMIN_1,process.env.ADMIN_2,process.env.ADMIN_3];
 
 const userSchema = new Schema(
   {
